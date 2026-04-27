@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Learn about Sri Mahalaxmi Caterers - our history, mission, vision, and what makes us the preferred catering choice in Hyderabad.">
+    <title>About Us - Sri Mahalaxmi Caterers</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+    <div class="preloader" id="preloader">
+        <div class="preloader__spinner"></div>
+        <div class="preloader__text">Sri Mahalaxmi Caterers</div>
+    </div>
+
+    <header class="header" id="site-header"></header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header__content">
+                <h1 class="page-header__title">About Us</h1>
+                <div class="page-header__breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span>About Us</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="section">
+        <div class="container">
+            <div class="about-story animate-on-scroll" id="about-story"></div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="section section--light">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-header__label">What Drives Us</span>
+                <h2 class="section-header__title">Our Values</h2>
+                <div class="section-header__divider"></div>
+            </div>
+            <div class="about-values animate-on-scroll" id="about-values"></div>
+        </div>
+    </section>
+
+    <!-- Specialties -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-header__label">What We Excel At</span>
+                <h2 class="section-header__title">Our Specialties</h2>
+                <div class="section-header__divider"></div>
+            </div>
+            <div class="grid grid--3" id="specialties-grid"></div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container animate-on-scroll">
+            <h2>Let's Create Something Delicious Together</h2>
+            <p>Contact us today and let us make your next event a culinary masterpiece.</p>
+            <a href="contact.html" class="btn btn--primary btn--lg">Get In Touch</a>
+        </div>
+    </section>
+
+    <footer class="footer" id="site-footer"></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = getData();
+
+            // Story section
+            const story = document.getElementById('about-story');
+            if (story) {
+                story.innerHTML = `
+          <div class="about-preview__image-wrap">
+            <img src="${data.about.image}" alt="Our Story" class="about-preview__image">
+            <div class="about-preview__experience">
+              <div class="about-preview__experience-number">${data.about.yearsExperience}+</div>
+              <div class="about-preview__experience-text">Years of<br>Excellence</div>
+            </div>
+          </div>
+          <div>
+            <span class="section-header__label" style="text-align:left;">Our Story</span>
+            <h2 style="margin-bottom:var(--space-lg);">A Legacy of <span class="text-accent">Taste & Trust</span></h2>
+            <p>${data.about.story}</p>
+            <p style="margin-top:var(--space-md);"><strong>Service Areas:</strong> ${data.about.serviceAreas}</p>
+          </div>
+        `;
+            }
+
+            // Values
+            const values = document.getElementById('about-values');
+            if (values) {
+                values.innerHTML = `
+          <div class="value-card">
+            <div class="value-card__icon">🎯</div>
+            <h3 class="value-card__title">Our Mission</h3>
+            <p>${data.about.mission}</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__icon">🔭</div>
+            <h3 class="value-card__title">Our Vision</h3>
+            <p>${data.about.vision}</p>
+          </div>
+          <div class="value-card">
+            <div class="value-card__icon">🏅</div>
+            <h3 class="value-card__title">Quality Promise</h3>
+            <p>We never compromise on the quality of ingredients, hygiene standards, or the dedication of our team. Every dish is crafted with care and love.</p>
+          </div>
+        `;
+            }
+
+            // Specialties
+            const specGrid = document.getElementById('specialties-grid');
+            if (specGrid) {
+                const icons = ['🍛', '🥘', '🍲', '📝', '👨‍🍳', '🎨'];
+                specGrid.innerHTML = data.about.specialties.map((spec, i) => `
+          <div class="card animate-on-scroll" style="text-align:center;">
+            <div class="card__body">
+              <div style="font-size:48px;margin-bottom:var(--space-md);">${icons[i] || '⭐'}</div>
+              <h4 class="card__title">${spec}</h4>
+              <p class="card__text">Expertly prepared with authentic recipes and premium ingredients.</p>
+            </div>
+          </div>
+        `).join('');
+                initScrollAnimations();
+            }
+        });
+    </script>
+</body>
+
+</html>

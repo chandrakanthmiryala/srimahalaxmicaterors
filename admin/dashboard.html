@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Sri Mahalaxmi Caterers</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar" id="admin-sidebar">
+            <div class="admin-sidebar__logo">
+                <div class="admin-sidebar__logo-icon">🪔</div>
+                <div class="admin-sidebar__logo-text">SMC Admin</div>
+            </div>
+            <nav class="admin-nav">
+                <a href="#dashboard" class="admin-nav__link active" data-section="dashboard">
+                    <span class="admin-nav__icon">📊</span> Dashboard
+                </a>
+                <a href="#landing" class="admin-nav__link" data-section="landing">
+                    <span class="admin-nav__icon">🏠</span> Landing Page
+                </a>
+                <div class="admin-nav__divider"></div>
+                <a href="#menu" class="admin-nav__link" data-section="menu">
+                    <span class="admin-nav__icon">🍽️</span> Menu Items
+                </a>
+                <a href="#gallery" class="admin-nav__link" data-section="gallery">
+                    <span class="admin-nav__icon">🖼️</span> Gallery
+                </a>
+                <a href="#services" class="admin-nav__link" data-section="services">
+                    <span class="admin-nav__icon">⚙️</span> Services
+                </a>
+                <div class="admin-nav__divider"></div>
+                <a href="#reviews" class="admin-nav__link" data-section="reviews">
+                    <span class="admin-nav__icon">⭐</span> Reviews
+                </a>
+                <a href="#inquiries" class="admin-nav__link" data-section="inquiries">
+                    <span class="admin-nav__icon">📩</span> Inquiries
+                </a>
+                <div class="admin-nav__divider"></div>
+                <a href="#contact-settings" class="admin-nav__link" data-section="contact-settings">
+                    <span class="admin-nav__icon">📞</span> Contact Settings
+                </a>
+                <a href="#" class="admin-nav__link" id="logout-btn" style="margin-top:auto;">
+                    <span class="admin-nav__icon">🚪</span> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <div class="admin-topbar">
+                <h2 class="admin-topbar__title" id="page-title">Dashboard</h2>
+                <div class="admin-topbar__actions">
+                    <a href="../index.html" class="btn btn--outline btn--sm" target="_blank">View Site</a>
+                    <div class="admin-topbar__user">
+                        <div class="admin-topbar__avatar">A</div>
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-content" id="admin-content">
+                <!-- Dynamic content loaded here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="admin-modal" id="admin-modal">
+        <div class="admin-modal__content">
+            <div class="admin-modal__header">
+                <h3 id="modal-title">Modal Title</h3>
+                <button class="admin-modal__close" id="modal-close">&times;</button>
+            </div>
+            <div class="admin-modal__body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

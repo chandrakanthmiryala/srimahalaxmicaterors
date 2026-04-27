@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore our comprehensive catering services - Wedding, Birthday, Corporate Events, Outdoor Catering, Food Donation, and Custom Menu Packages.">
+    <title>Our Services - Sri Mahalaxmi Caterers</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+    <div class="preloader" id="preloader">
+        <div class="preloader__spinner"></div>
+        <div class="preloader__text">Sri Mahalaxmi Caterers</div>
+    </div>
+
+    <header class="header" id="site-header"></header>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header__content">
+                <h1 class="page-header__title">Our Services</h1>
+                <div class="page-header__breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span>Services</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-header__label">What We Offer</span>
+                <h2 class="section-header__title">Catering Solutions for Every Occasion</h2>
+                <div class="section-header__divider"></div>
+                <p class="section-header__subtitle">From intimate gatherings to grand celebrations, we have the perfect
+                    catering package for you.</p>
+            </div>
+            <div id="services-list"></div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container animate-on-scroll">
+            <h2>Need a Custom Package?</h2>
+            <p>Tell us about your event and we'll create a tailored catering solution just for you.</p>
+            <a href="contact.html" class="btn btn--primary btn--lg">Contact Us</a>
+        </div>
+    </section>
+
+    <footer class="footer" id="site-footer"></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = getData();
+            const list = document.getElementById('services-list');
+            if (!list) return;
+
+            list.innerHTML = data.services.map(service => `
+        <div class="service-card animate-on-scroll">
+          <img src="${service.image}" alt="${service.title}" class="service-card__image" loading="lazy">
+          <div class="service-card__content">
+            <div class="service-card__icon">${service.icon}</div>
+            <h3 class="service-card__title">${service.title}</h3>
+            <p class="service-card__text">${service.description}</p>
+            <div class="service-card__features">
+              ${service.features.map(f => `
+                <div class="service-card__feature">
+                  <span class="service-card__feature-icon">✅</span>
+                  <span>${f}</span>
+                </div>
+              `).join('')}
+            </div>
+            <a href="contact.html" class="btn btn--outline btn--sm" style="align-self:flex-start;margin-top:var(--space-md);">Book This Service</a>
+          </div>
+        </div>
+      `).join('');
+
+            initScrollAnimations();
+        });
+    </script>
+</body>
+
+</html>

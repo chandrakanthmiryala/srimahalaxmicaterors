@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Sri Mahalaxmi Caterers</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <div class="admin-login">
+        <div class="admin-login__card">
+            <div class="admin-login__logo">
+                <div class="admin-login__logo-icon">🪔</div>
+                <h2>Admin Panel</h2>
+                <p>Sri Mahalaxmi Caterers</p>
+            </div>
+            <div class="admin-login__error" id="login-error">Invalid username or password</div>
+            <form class="admin-login__form" id="login-form">
+                <div class="form-group">
+                    <label for="admin-username">Username</label>
+                    <input type="text" id="admin-username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <input type="password" id="admin-password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg" style="width:100%;">Sign In</button>
+            </form>
+            <p
+                style="text-align:center;margin-top:var(--space-lg);font-size:var(--fs-sm);color:var(--color-dark-gray);">
+                <a href="../index.html" style="color:var(--color-primary-light);">← Back to Website</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="../js/data.js"></script>
+    <script>
+        // Check if already logged in
+        if (localStorage.getItem('smcAdminLoggedIn') === 'true') {
+            window.location.href = 'dashboard.html';
+        }
+
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const data = getData();
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+
+            if (username === data.admin.username && password === data.admin.password) {
+                localStorage.setItem('smcAdminLoggedIn', 'true');
+                window.location.href = 'dashboard.html';
+            } else {
+                document.getElementById('login-error').classList.add('show');
+                setTimeout(() => {
+                    document.getElementById('login-error').classList.remove('show');
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+
+</html>

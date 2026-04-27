@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contact Sri Mahalaxmi Caterers for booking inquiries, custom menu requests, and event planning. Call, WhatsApp, or fill our contact form.">
+    <title>Contact Us - Sri Mahalaxmi Caterers</title>
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+
+<body>
+    <div class="preloader" id="preloader">
+        <div class="preloader__spinner"></div>
+        <div class="preloader__text">Sri Mahalaxmi Caterers</div>
+    </div>
+
+    <header class="header" id="site-header"></header>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="page-header__content">
+                <h1 class="page-header__title">Contact Us</h1>
+                <div class="page-header__breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span>›</span>
+                    <span>Contact</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-header__label">Get In Touch</span>
+                <h2 class="section-header__title">We'd Love to Hear From You</h2>
+                <div class="section-header__divider"></div>
+                <p class="section-header__subtitle">Have a question or want to book our services? Send us a message and
+                    we'll get back to you promptly.</p>
+            </div>
+
+            <div class="contact-grid animate-on-scroll">
+                <!-- Contact Form -->
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Full Name *</label>
+                        <input type="text" id="contact-name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Phone Number *</label>
+                        <input type="tel" id="contact-phone" placeholder="Your phone number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" placeholder="Your email address">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-event">Event Type</label>
+                        <select id="contact-event">
+                            <option value="">Select event type</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Birthday">Birthday Party</option>
+                            <option value="Corporate">Corporate Event</option>
+                            <option value="Engagement">Engagement</option>
+                            <option value="Festival">Festival Celebration</option>
+                            <option value="Outdoor">Outdoor Event</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-guests">Expected Number of Guests</label>
+                        <input type="number" id="contact-guests" placeholder="Approximate guest count" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-date">Event Date</label>
+                        <input type="date" id="contact-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Message *</label>
+                        <textarea id="contact-message" placeholder="Tell us about your event requirements..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--lg">Send Inquiry</button>
+                </form>
+
+                <!-- Contact Info -->
+                <div class="contact-info" id="contact-info"></div>
+            </div>
+
+            <!-- Map -->
+            <div class="contact-map animate-on-scroll" id="contact-map"></div>
+        </div>
+    </section>
+
+    <footer class="footer" id="site-footer"></footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const data = getData();
+
+            // Render contact info
+            const infoContainer = document.getElementById('contact-info');
+            infoContainer.innerHTML = `
+        <div class="contact-info-card">
+          <div class="contact-info-card__icon">📍</div>
+          <div>
+            <h4 class="contact-info-card__title">Our Address</h4>
+            <p class="contact-info-card__text">${data.siteInfo.address}</p>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-card__icon">📞</div>
+          <div>
+            <h4 class="contact-info-card__title">Phone Numbers</h4>
+            <p class="contact-info-card__text">${data.siteInfo.phone}</p>
+            <p class="contact-info-card__text">${data.siteInfo.altPhone}</p>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-card__icon">✉️</div>
+          <div>
+            <h4 class="contact-info-card__title">Email Us</h4>
+            <p class="contact-info-card__text">${data.siteInfo.email}</p>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-card__icon">💬</div>
+          <div>
+            <h4 class="contact-info-card__title">WhatsApp</h4>
+            <p class="contact-info-card__text">Chat with us on WhatsApp for quick responses</p>
+            <a href="https://wa.me/${data.siteInfo.whatsapp}" target="_blank" class="btn btn--primary btn--sm" style="margin-top:var(--space-sm);">Chat Now</a>
+          </div>
+        </div>
+        <div class="contact-info-card">
+          <div class="contact-info-card__icon">🕐</div>
+          <div>
+            <h4 class="contact-info-card__title">Working Hours</h4>
+            <p class="contact-info-card__text">Monday - Saturday: 9:00 AM - 8:00 PM</p>
+            <p class="contact-info-card__text">Sunday: 10:00 AM - 6:00 PM</p>
+          </div>
+        </div>
+      `;
+
+            // Map
+            const mapContainer = document.getElementById('contact-map');
+            mapContainer.innerHTML = `<iframe src="${data.siteInfo.mapEmbed}" allowfullscreen="" loading="lazy"></iframe>`;
+
+            // Form submission
+            document.getElementById('contact-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const inquiry = {
+                    id: Date.now(),
+                    name: document.getElementById('contact-name').value,
+                    phone: document.getElementById('contact-phone').value,
+                    email: document.getElementById('contact-email').value,
+                    event: document.getElementById('contact-event').value,
+                    guests: document.getElementById('contact-guests').value,
+                    date: document.getElementById('contact-date').value,
+                    message: document.getElementById('contact-message').value,
+                    submittedAt: new Date().toISOString(),
+                    status: 'new'
+                };
+
+                const freshData = getData();
+                freshData.inquiries.push(inquiry);
+                saveData(freshData);
+
+                showToast('Thank you! Your inquiry has been submitted. We\'ll get back to you shortly.');
+                e.target.reset();
+            });
+        });
+    </script>
+</body>
+
+</html>
