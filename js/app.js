@@ -31,7 +31,7 @@ function loadHeader() {
     <div class="container">
       <a href="index.html" class="logo">
         <div class="logo__icon">
-          <div style="width:100%;height:100%;background:var(--gradient-accent);display:flex;align-items:center;justify-content:center;font-size:24px;color:white;border-radius:var(--radius-md);">🪔</div>
+          <img src="images/goddess_lakshmi.png" alt="Goddess Lakshmi" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-md);">
         </div>
         <div class="logo__text">
           <span class="logo__name">${data.siteInfo.name}</span>
@@ -103,7 +103,7 @@ function loadFooter() {
       <div class="footer__grid">
         <div>
           <div class="footer__brand">
-            <div class="footer__brand-name">🪔 ${data.siteInfo.name}</div>
+            <div class="footer__brand-name"><img src="images/goddess_lakshmi.png" alt="Goddess Lakshmi" style="width:28px;height:28px;object-fit:cover;border-radius:50%;vertical-align:middle;margin-right:8px;"> ${data.siteInfo.name}</div>
             <p class="footer__brand-desc">
               Creating unforgettable culinary experiences for weddings, corporate events, and celebrations since 2005. Your event, our passion.
             </p>
