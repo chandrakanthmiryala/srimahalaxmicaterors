@@ -7,7 +7,7 @@ const DEFAULT_DATA = {
     name: "Sri Mahalaxmi Caterers",
     tagline: "Creating Memorable Feasts Since 2005",
     phone: "+91 9490369140",
-    altPhone: "+91 9491961940",
+    altPhone: "+91 9666920781",
     email: "info@srimahalaxmicaterers.com",
     address: "LB Nagar, Hyderabad, Telangana 500074",
     whatsapp: "919490369140",
